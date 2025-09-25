@@ -4,116 +4,156 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shan Franando - vCard</title>
+  <title>Shan Franando - Visiting Card</title>
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <main>
-    <aside class="sidebar">
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Shan Franando" width="80">
-        </figure>
-        <div class="info-content">
-          <h1 class="name">Shan Franando</h1>
-          <p class="title"><ion-icon name="person"></ion-icon> Proprietor</p>
-        </div>
-        <button class="info_more-btn">
-          <span>Show Contacts</span>
-        </button>
-      </div>
-      <div class="sidebar-info_more">
-        <div class="separator"></div>
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-            <div>
-              <p class="contact-title">Email</p>
-              <a href="mailto:shanadvertising8@gmail.com" class="contact-link">shanadvertising8@gmail.com</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="call-outline"></ion-icon></div>
-            <div>
-              <p class="contact-title">Phone</p>
-              <a href="tel:+94710312726" class="contact-link">(+94) 071 031 27 26</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="location"></ion-icon></div>
-            <div>
-              <p class="contact-title">Location</p>
-              <address>Kalugagala, Near The Bridge</address>
-            </div>
-          </li>
-        </ul>
-        <div class="separator"></div>
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://fb.com/shan.fernando.1656854" class="social-link" target="_blank">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://instagram.com" class="social-link" target="_blank">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://wa.me/94710312726" class="social-link" target="_blank">
-              <ion-icon name="logo-whatsapp"></ion-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-    <div class="main-content">
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li><button class="navbar-link active" data-section="services"><ion-icon name="construct-outline"></ion-icon> Services</button></li>
-          <li><button class="navbar-link" data-section="portfolio"><ion-icon name="images-outline"></ion-icon> Portfolio</button></li>
-          <li><button class="navbar-link" data-section="contact"><ion-icon name="mail-open-outline"></ion-icon> Contact</button></li>
-        </ul>
-      </nav>
-      <section class="section active" id="services">
-        <h2 class="article-title"><ion-icon name="construct"></ion-icon> Services</h2>
-        <ul class="service-list">
-          <li class="service-item"><ion-icon name="car-outline"></ion-icon> Vehicle Stickers</li>
-          <li class="service-item"><ion-icon name="business-outline"></ion-icon> Name Boards</li>
-          <li class="service-item"><ion-icon name="bulb-outline"></ion-icon> Light Boards</li>
-          <li class="service-item"><ion-icon name="document-text-outline"></ion-icon> Notice Printing</li>
-          <li class="service-item"><ion-icon name="print-outline"></ion-icon> Digital Prints</li>
-          <li class="service-item"><ion-icon name="heart-outline"></ion-icon> Wedding Cards</li>
-          <li class="service-item"><ion-icon name="card-outline"></ion-icon> Business Cards</li>
-          <li class="service-item"><ion-icon name="cut-outline"></ion-icon> Sticker Cutting</li>
-        </ul>
-      </section>
-      <section class="section" id="portfolio">
-        <h2 class="article-title"><ion-icon name="images"></ion-icon> Portfolio</h2>
-        <ul class="project-list">
-          <li class="project-item">
-            <img src="./assets/images/project-1.jpg" alt="Sample Project"/>
-            <p class="project-title"><ion-icon name="star"></ion-icon> Sample Project</p>
-          </li>
-        </ul>
-      </section>
-      <section class="contact-section section" id="contact">
-        <h2 class="article-title"><ion-icon name="mail-open"></ion-icon> Contact</h2>
-        <form>
-          <input type="text" placeholder="Name" required>
-          <input type="email" placeholder="Email" required>
-          <textarea placeholder="Message" required></textarea>
-          <button type="submit"><ion-icon name="send"></ion-icon> Send</button>
-        </form>
-      </section>
-    </div>
-  </main>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f9b233 0%, #232323 100%);
+      font-family: 'Poppins', Arial, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+      max-width: 350px;
+      width: 100%;
+      padding: 32px 28px;
+      text-align: center;
+      position: relative;
+      animation: fadeInUp 1s;
+    }
+    .avatar {
+      margin-bottom: 18px;
+    }
+    .avatar img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid #f9b233;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      background: #eee;
+    }
+    .name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #232323;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+    .title {
+      font-size: 1.1rem;
+      color: #f9b233;
+      font-weight: 500;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+    .info {
+      margin-bottom: 18px;
+    }
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 14px;
+      text-align: left;
+      font-size: 0.98em;
+    }
+    .info-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 12px;
+      color: #232323;
+    }
+    .info-list a {
+      color: #232323;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .info-list a:hover {
+      text-decoration: underline;
+      color: #f9b233;
+    }
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-bottom: 10px;
+    }
+    .social a {
+      font-size: 1.7em;
+      color: #232323;
+      transition: color .2s, transform .2s;
+    }
+    .social a:hover {
+      color: #f9b233;
+      transform: scale(1.18) rotate(-6deg);
+    }
+    .card-footer {
+      margin-top: 22px;
+      font-size: 0.93em;
+      color: #999;
+      letter-spacing: 0.5px;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 500px) {
+      .card {padding: 18px 4vw;}
+      .avatar img {width: 72px; height: 72px;}
+      .name {font-size: 1.3rem;}
+    }
+  </style>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="./assets/js/main.js"></script>
+</head>
+<body>
+  <div class="card">
+    <div class="avatar">
+      <img src="./assets/images/my-avatar.png" alt="Shan Franando">
+    </div>
+    <div class="name">Shan Franando</div>
+    <div class="title"><ion-icon name="person"></ion-icon> Proprietor</div>
+    <div class="info">
+      <ul class="info-list">
+        <li>
+          <ion-icon name="mail-outline"></ion-icon>
+          <a href="mailto:shanadvertising8@gmail.com">shanadvertising8@gmail.com</a>
+        </li>
+        <li>
+          <ion-icon name="call-outline"></ion-icon>
+          <a href="tel:+94710312726">(+94) 071 031 27 26</a>
+        </li>
+        <li>
+          <ion-icon name="location"></ion-icon>
+          <span>Kalugagala, Near The Bridge</span>
+        </li>
+      </ul>
+    </div>
+    <div class="social">
+      <a href="https://fb.com/shan.fernando.1656854" target="_blank">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+      <a href="https://wa.me/94710312726" target="_blank">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </a>
+    </div>
+    <div class="card-footer">
+      Shan Advertising &bull; All services: Stickers, Boards, Cards &amp; more
+    </div>
+  </div>
 </body>
 </html>
