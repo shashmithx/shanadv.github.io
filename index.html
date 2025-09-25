@@ -21,7 +21,7 @@
       background: #fff;
       border-radius: 18px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.14);
-      max-width: 350px;
+      max-width: 400px;
       width: 100%;
       padding: 32px 28px;
       text-align: center;
@@ -62,8 +62,7 @@
     .info-list {
       list-style: none;
       padding: 0;
-      margin: 0;
-      margin-bottom: 14px;
+      margin: 0 0 14px 0;
       text-align: left;
       font-size: 0.98em;
     }
@@ -104,14 +103,92 @@
       color: #999;
       letter-spacing: 0.5px;
     }
+    /* Service Accordion Styles */
+    .services-section {
+      margin: 30px 0 0 0;
+      text-align: left;
+    }
+    .services-title {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #f9b233;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-item {
+      border-radius: 8px;
+      background: #fafafa;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+      transition: box-shadow .2s;
+      border: 1px solid #eee;
+      overflow: hidden;
+    }
+    .service-header {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 15px;
+      font-weight: 500;
+      font-size: 1.06em;
+      color: #232323;
+      background: #f9b233;
+      border: none;
+      outline: none;
+      transition: background .2s;
+      width: 100%;
+    }
+    .service-header:hover {
+      background: #232323;
+      color: #f9b233;
+    }
+    .service-header ion-icon {
+      font-size: 1.3em;
+    }
+    .service-content {
+      display: none;
+      padding: 14px 16px;
+      background: #fff;
+      animation: fadeIn .7s;
+    }
+    .service-item.active {
+      box-shadow: 0 6px 24px rgba(249,178,51,0.13);
+      border-color: #f9b233;
+    }
+    .service-item.active .service-content {
+      display: block;
+    }
+    .service-img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 7px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .service-desc {
+      font-size: 0.98em;
+      color: #232323;
+      margin-bottom: 6px;
+    }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(40px);}
       to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
     }
     @media (max-width: 500px) {
       .card {padding: 18px 4vw;}
       .avatar img {width: 72px; height: 72px;}
       .name {font-size: 1.3rem;}
+      .service-img {max-width: 98vw;}
     }
   </style>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -151,9 +228,64 @@
         <ion-icon name="logo-whatsapp"></ion-icon>
       </a>
     </div>
+
+    <!-- Services Section (Expandable) -->
+    <div class="services-section">
+      <div class="services-title"><ion-icon name="construct"></ion-icon> Services</div>
+      
+      <!-- Service Example 1 -->
+      <div class="service-item">
+        <button class="service-header"><ion-icon name="car-outline"></ion-icon> Vehicle Stickers</button>
+        <div class="service-content">
+          <img src="./assets/images/service-vehicle-stickers.jpg" alt="Vehicle Stickers" class="service-img">
+          <div class="service-desc">
+            Custom vehicle stickers for branding and personalization. Durable and vivid colors, perfect for cars, vans, and bikes!
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service Example 2 -->
+      <div class="service-item">
+        <button class="service-header"><ion-icon name="business-outline"></ion-icon> Name Boards</button>
+        <div class="service-content">
+          <img src="./assets/images/service-name-board.jpg" alt="Name Boards" class="service-img">
+          <div class="service-desc">
+            Professional name boards for shops, offices, homes. Weather-resistant and available in many styles.
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service Example 3 -->
+      <div class="service-item">
+        <button class="service-header"><ion-icon name="bulb-outline"></ion-icon> Light Boards</button>
+        <div class="service-content">
+          <img src="./assets/images/service-light-board.jpg" alt="Light Boards" class="service-img">
+          <div class="service-desc">
+            Eye-catching light boards for nighttime visibility. LED and neon options available!
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add more services as needed, following the template above -->
+      <!-- ... -->
+      
+    </div>
     <div class="card-footer">
       Shan Advertising &bull; All services: Stickers, Boards, Cards &amp; more
     </div>
   </div>
+  <script>
+    // Accordion functionality for services
+    document.querySelectorAll('.service-header').forEach((btn) => {
+      btn.addEventListener('click', function () {
+        // Collapse other open services
+        document.querySelectorAll('.service-item').forEach((item) => {
+          if (item !== btn.parentElement) item.classList.remove('active');
+        });
+        // Toggle this service
+        btn.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
