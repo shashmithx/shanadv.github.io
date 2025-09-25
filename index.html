@@ -11,6 +11,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* Ink Splash Background Animation */
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      background: #232323;
+    }
+    .ink-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .main-content {
+      position: relative;
+      z-index: 2;
+    }
     /* Accordion-specific styles for services */
     .services-list { margin-top: 16px; }
     .service-item { background: #f8f8f8; border-radius: 8px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);}
@@ -44,6 +63,8 @@
   </style>
 </head>
 <body>
+  <!-- Ink Splash Canvas -->
+  <canvas id="inkCanvas" class="ink-bg"></canvas>
   <main>
     <aside class="sidebar">
       <div class="sidebar-info">
@@ -183,13 +204,88 @@
     document.querySelectorAll('.service-toggle').forEach((btn) => {
       btn.addEventListener('click', function () {
         const item = btn.parentElement;
-        // Collapse other services
         document.querySelectorAll('.service-item').forEach((el) => {
           if (el !== item) el.classList.remove('active');
         });
-        // Toggle current
         item.classList.toggle('active');
       });
+    });
+
+    // Ink Splash Background Animation
+    // Simple animated ink blobs using canvas
+    const canvas = document.getElementById('inkCanvas');
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    function randomColor() {
+      const colors = [
+        'rgba(249,179,51,0.22)',
+        'rgba(249,179,51,0.35)',
+        'rgba(100,50,255,0.22)',
+        'rgba(255,255,255,0.12)',
+        'rgba(255,50,100,0.13)',
+        'rgba(50,255,200,0.10)'
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function drawBlob(x, y, r, color, t) {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, 0.5 - t * 0.04);
+      ctx.beginPath();
+      for (let i = 0; i < 16; i++) {
+        let angle = (Math.PI * 2 / 16) * i;
+        let rad = r + Math.sin(t/10 + i) * r/8;
+        ctx.lineTo(x + Math.cos(angle) * rad, y + Math.sin(angle) * rad);
+      }
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 32;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    let blobs = [];
+    for (let i = 0; i < 7; i++) {
+      blobs.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: 120 + Math.random()*80,
+        color: randomColor(),
+        dx: 1 + Math.random()*1.5,
+        dy: 1 + Math.random()*1.5,
+        dr: Math.random()*0.5,
+        t: Math.random()*100
+      });
+    }
+
+    function animateInk() {
+      ctx.clearRect(0, 0, w, h);
+      blobs.forEach(b => {
+        drawBlob(b.x, b.y, b.r, b.color, b.t);
+        b.x += Math.sin(b.t/33)*0.6 * b.dx;
+        b.y += Math.cos(b.t/27)*0.8 * b.dy;
+        b.r += Math.sin(b.t/23)*0.5 * b.dr;
+        b.t += 1;
+        // Wrap around
+        if (b.x > w + 120) b.x = -120;
+        if (b.x < -120) b.x = w + 120;
+        if (b.y > h + 120) b.y = -120;
+        if (b.y < -120) b.y = h + 120;
+      });
+      requestAnimationFrame(animateInk);
+    }
+    animateInk();
+
+    window.addEventListener('resize', () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
     });
   </script>
   <script src="./assets/js/main.js"></script>
