@@ -24,11 +24,11 @@ main {
   align-items: center;
 }
 .avatar-box img {
-  border-radius: 50%;
-  border: 2px solid #fff;
+  border-radius: 0%;
+  border: 0px solid #fff;
   background: #dedede;
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 80.2712px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.09);
   animation: fadeIn 1s;
 }
