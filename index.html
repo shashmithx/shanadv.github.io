@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shan Fernando - Visiting Card</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      display: flex;
+      flex-wrap: wrap;
+      width: 900px;
+      max-width: 95%;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    /* Left side (contact) */
+    .left {
+      flex: 1;
+      min-width: 280px;
+      background: linear-gradient(135deg, #b10000, #e60000);
+      color: white;
+      padding: 30px;
+    }
+
+    .left h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .left p.role {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #ffd1d1;
+    }
+
+    .contact {
+      margin: 15px 0;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .contact span {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .qr {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .qr img {
+      width: 100px;
+      height: 100px;
+    }
+
+    /* Right side (services) */
+    .right {
+      flex: 1;
+      min-width: 280px;
+      padding: 30px;
+      background: #fff;
+    }
+
+    .right h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #b10000;
+    }
+
+    .services {
+      list-style: none;
+    }
+
+    .services li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .services li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #b10000;
+    }
+
+    @media(max-width: 700px) {
+      .card {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Left Side -->
+    <div class="left">
+      <h1>SHAN FRANANDO</h1>
+      <p class="role">Proprietor</p>
+
+      <div class="contact">
+        <p><span>📍</span>Kalugagala, Near The Bridge</p>
+        <p><span>🌐</span><a href="https://fb.com/shan.fernando.1656854" target="_blank" style="color:white;text-decoration:none;">fb.com/shan.fernando.1656854</a></p>
+        <p><span>✉️</span><a href="mailto:shanadvertising8@gmail.com" style="color:white;text-decoration:none;">shanadvertising8@gmail.com</a></p>
+        <p><span>📞</span><a href="tel:+94710312726" style="color:white;text-decoration:none;">(+94) 071 031 27 26</a></p>
+      </div>
+
+      <div class="qr">
+        <img src="qr-placeholder.png" alt="QR Code">
+        <p>Scan Me</p>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right">
+      <h2>Our Services</h2>
+      <ul class="services">
+        <li>Vehicle Stickers</li>
+        <li>Name Boards</li>
+        <li>Light Boards</li>
+        <li>Notice Printing</li>
+        <li>Digital Prints</li>
+        <li>Wedding Cards</li>
+        <li>Business Cards</li>
+        <li>Sticker Cutting</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
